@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paperless</title>
+    <link rel="shortcut icon" type="image/png" href="devFiles/icon.png"/>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
+</head>
+<body>
+    <div class="mainDiv">
+        <div class="topPage">
+            <h1 id="titleTop" style="color: white; text-align: center; font-weight: bold;">Paperless</h1>
+            <h1 style="color: white; text-align: center; font-weight: bold; font-size: 13px; position: relative; top: -20px; opacity: 70%">Your bills, our problem</h1>
+
+            <div class="subtitle_container" style="display: flex; justify-content: center;">
+                <h1 style="color: white; text-align: center; font-weight: bold; font-size: 13px; position: relative; top: 140px; z-index: 5000 !important; max-width: 270px;">Paperless is an organization that helps cut down paperwork, bills ect.</h1>
+            </div>
+            
+            <div class="img_container" style="display: flex; justify-content: center;">
+                <img src="devFiles/paperStack.png" style="position: relative; width: 130px; top: 40px">
+                <button onclick="location.href = '/account.html'" class="call_to_action_btn" style="position: absolute; top: 485px; width: 110px; height: 37px; border: none; border-radius: 12px; outline: none; color: #4E7DFF; font-weight: bold;">Join Us</button>
+                <img onclick="scrollToPlace('bottom')" src="/devFiles/scroll.gif" style="position: absolute; width: 60px; top: 530px">
+            </div>
+        </div>
+
+        <div id="bottomPage" class="bottomPage" style="position: relative; top: 400px; width: 100vw;">
+            <h1 id="titleBottom" style="color: white; text-align: center; font-weight: bold;">About</h1>
+
+            <div class="about_content" style="display: flex; justify-content: center;">
+                <div style="display: flex; flex-direction: column;">
+                    <h1 style="color: white; text-align: center; font-size: 18px; max-width: 300px; opacity: 70%; margin-bottom: 30px;" >
+                        Paperless is a organization
+                        designed to help people aged 18+
+                        on useless paperwork that wastes
+                        time and energy
+                    </h1>
+                    <h1 style="color: white; text-align: center; font-size: 18px; max-width: 300px; opacity: 70%; margin-bottom: 30px;">
+                        Paperless is designed to help young
+                        adults not waste precious time and
+                        energy on useless work, It can be used
+                        by anyone over the ages of 18 
+                    </h1>
+                    <h1 style="color: white; text-align: center; font-size: 18px; max-width: 300px; opacity: 70%; margin-bottom: 30px;">
+                        We have our whole team ready to
+                        assist your bills, paperwork and more
+                        all for a good price. To get started head
+                        over to the top and SignUp
+                    </h1>
+                    <h1 style="color: white; text-align: center; font-size: 18px; max-width: 300px; opacity: 70%; margin-bottom: 30px;">
+                        Lastly follow our socials to stay in touch.
+                        If you find any problems make sure to give
+                        us an email or a call
+                    </h1>
+                </div>
+            </div>
+
+            <h1 style="color: white; text-align: center; font-size: 16px; margin-bottom: 30px;">List of country's we support:</h1>
+
+            <div class="country_container" style="display: flex; justify-content: center; margin-bottom: 50px;">
+                <img src="devFiles/unitedKingdomFlag.png" style="margin-right: 20px;">
+                <img src="devFiles/UnitedStatesFlag.png" style="margin-right: 20px;">
+                <img src="devFiles/CanadaFlag.png">
+            </div>
+            
+            <div class="img_container" style="display: flex; justify-content: center;">
+                <img onclick="scrollToPlace('top')" src="/devFiles/scroll.gif" style="position: relative; width: 60px; bottom: 20px; transform: rotate(180deg);">
+            </div>
+
+            <div class="footer" style="position: relative; bottom: 0px; background-color: #313131; width: 100%; height: 70px; z-index: 5000 !important;">
+                <h1 style="color: white; font-size: 17px; text-align: center; position: relative; top: 44px; opacity: 45%;">Contact us: contact@paperless.com</h1>
+            
+                <div class="socialsContainer" style="position: relative; top: -17px; display: flex; justify-content: center;">
+                    <img onclick="window.location.replace('https://twitter.com/')" src="/devFiles/twitterIcon.png" style="width: 23px; margin-right: 20px;">
+                    <img onclick="window.location.replace('https://instagram.com/')" src="/devFiles/instagramIcon.png" style="width: 23px; margin-right: 20px;">
+                    <img onclick="window.location.replace('https://facebook.com/')" src="/devFiles/facebookicon.png" style="width: 23px;">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="iconMaps">
+            <img src="/devFiles/icon.png" style="position: absolute; width: 90px; top: -30px; left: -30px" >
+            <img src="/devFiles/icon.png" style="position: absolute; width: 90px; top: 180px; right: -40px">
+            <img src="/devFiles/icon.png" style="position: absolute; width: 90px; top: 430px; left: -40px">
+            
+            <img src="/devFiles/icon.png" style="position: absolute; width: 90px; top: 690px; left: -50px" >
+            <img src="/devFiles/icon.png" style="position: absolute; width: 90px; top: 870px; right: -50px" >
+            <img src="/devFiles/icon.png" style="position: absolute; width: 90px; top: 1260px; left: -30px; z-index: 100;"  >
+        </div>
+        
+    </div>
+</body>
+<script src="firefunctions.js"></script>
+<script src="app.js"></script>
+<script>
+    function scrollToPlace(place)
+    {
+        mediaQureySet()
+        if(place == 'top')
+        {
+            let el = document.getElementById('titleTop')
+            el.scrollIntoView({behavior:"smooth",block:"center"})
+        }
+        if(place == 'bottom')
+        {
+            let el = document.getElementById('titleBottom')
+            el.scrollIntoView({behavior:"smooth",block:"start"})
+        }
+    }
+
+    function mediaQureySet()
+    {
+
+        // height
+
+        console.log(document.body.clientWidth + 16)
+
+        let pageHeight = window.matchMedia('(min-height: 715px)'); // if height passes 715
+        if(pageHeight.matches)
+        {
+            console.log("height 1 matched")
+            document.getElementById("bottomPage").style.top = "600px"
+        }
+
+        let pageHeight2 = window.matchMedia('(min-height: 900px)'); // if height passes 900
+        if(pageHeight2.matches)
+        {
+            console.log("height 2 matched")
+            document.getElementById("bottomPage").style.top = "700px"
+        }
+
+        let pageHeight3 = window.matchMedia('(min-height: 990px)'); // if height passes 990
+        if(pageHeight3.matches)
+        {
+            console.log("height 3 matched")
+            document.getElementById("bottomPage").style.top = "900px"
+        }
+
+        // width
+
+        let pageWidth = window.matchMedia('(min-width: 600px)'); // if height passes 715
+        if(pageWidth.matches)
+        {
+            console.log("width 1 matched")
+        }
+
+        let pageWidth2 = window.matchMedia('(min-width: 800px)'); // if height passes 715
+        if(pageWidth2.matches)
+        {
+            console.log("width 2 matched")
+        }
+
+        let pageWidth3 = window.matchMedia('(min-width: 1000px)'); // if height passes 715
+        if(pageWidth3.matches)
+        {
+            console.log("width 3 matched")
+        }
+
+        let pageWidth4 = window.matchMedia('(min-width: 1500px)'); // if height passes 715
+        if(pageWidth4.matches)
+        {
+            console.log("width 4 matched")
+        }
+    }
+
+    mediaQureySet()
+</script>
+</html>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+    .mainDiv{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        overflow-x: hidden;
+    }
+
+    body{
+        background-color: #4E7DFF;
+        font-family: 'Roboto', sans-serif;
+        overflow-x: hidden;
+    }
+    *{
+        font-family: 'Roboto', sans-serif;
+
+    }
+    .call_to_action_btn:hover{
+        background-color: rgb(228, 227, 227);
+    }
+    .mainDiv::-webkit-scrollbar {
+        display: none;
+    }
+
+</style>

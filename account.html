@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paperless</title>
+    <link rel="shortcut icon" type="image/png" href="devFiles/icon.png"/>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
+</head>
+<body>
+    <div class="mainDiv">
+
+        <div id="login" class="login">
+
+            <h1 style="color: white; text-align: center; font-weight: bold;">Paperless</h1>
+
+            <img onclick="location.href= '/index.html'" src="devFiles/backArrow.png" style="width: 25px; position: absolute; left: 25px; top: 10px;">
+
+            <h1 style="color: white; text-align: center; font-weight: bold; font-size: 20px">Login</h1>
+
+            <div class="inpContainer" style="display: flex; justify-content: center;">
+                <div class="inpSecondary" style="display: flex; flex-direction: column;">
+                    <input id="email" type="text" placeholder="email" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px;">
+                    <input id="password" type="text" placeholder="passsword" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px;">
+
+                    <div id="btnCotainer" style="display: flex; justify-content: center;">
+                        <button id="loginBtn" onclick="login(document.getElementById('email').value, document.getElementById('password').value)" style="position: relative; width: 110px; height: 37px; border: none; border-radius: 12px; outline: none; color: #4E7DFF; font-weight: bold;">Login</button>
+                        <h1 onclick="showPage('signup')" style="color: white; text-align: center; font-weight: bold; font-size: 15px; position: absolute; top: 270px; opacity: 0.4">Dont have an account?</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div id="signup" class="signup">
+
+            <h1 style="color: white; text-align: center; font-weight: bold;">Paperless</h1>
+
+            <img onclick="location.href= '/index.html'" src="devFiles/backArrow.png" style="width: 25px; position: absolute; left: 25px; top: 10px;">
+
+            <h1 style="color: white; text-align: center; font-weight: bold; font-size: 20px">Signup</h1>
+
+            <div class="inpContainer" style="display: flex; justify-content: center;">
+                <div class="inpSecondary" style="display: flex; flex-direction: column;">
+                    <input id="usernameSignup" type="text" placeholder="username" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px;">
+                    <input id="emailSignup" type="text" placeholder="email" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px;">
+                    <input id="passwordSignup" type="text" placeholder="passsword" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px;">
+                    <input id="passwordRepeated" type="text" placeholder="passsword (repeat)" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px;">
+
+                    <div id="btnCotainer" style="display: flex; justify-content: center;">
+                        <button id="signupBtn" onclick="signUp(document.getElementById('usernameSignup').value, document.getElementById('emailSignup').value, document.getElementById('passwordSignup').value, document.getElementById('passwordRepeated').value)" style="position: relative; width: 110px; height: 37px; border: none; border-radius: 12px; outline: none; color: #4E7DFF; font-weight: bold;">Signup</button>
+                        <h1 onclick="showPage('login')" style="color: white; text-align: center; font-weight: bold; font-size: 15px; position: absolute; top: 390px; opacity: 0.4">Already have an account?</h1>
+                    </div>
+                </div> 
+            </div>
+
+        </div>
+
+        <div id="account" class="account" style="display: none;">
+
+            <h1 style="color: white; text-align: center; font-weight: bold;">Account</h1>
+
+            <img onclick="location.href= '/index.html'" src="devFiles/backArrow.png" style="width: 25px; position: absolute; left: 25px; top: 10px;">
+
+            <h1 id="subtitle" style="color: white; text-align: left; font-weight: bold; font-size: 25px; position: relative; left: 30px">Welcome back, user </h1>
+
+            <div class="btnCotainer" style="display: flex; justify-content: center;">
+
+                <button id="logoutBtn" onclick="Cookies.remove('username'); Cookies.remove('email'); Cookies.remove('password'); location.href = '/account.html' " style="position: absolute; bottom: 30px; width: 110px; height: 37px; border: none; border-radius: 12px; outline: none; color: #4E7DFF; font-weight: bold;">Logout</button>
+                <div style="display: flex; flex-direction: column; position: relative; top: 50px;">
+                    
+                    <h1 id="subtitle" style="color: white; text-align: left; font-weight: bold; font-size: 19px; text-align: center; opacity: 40%;">Email </h1>
+                    <input readonly id="emailHide" type="password" value="email" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px;">
+                    <h1 id="subtitle" style="color: white; text-align: left; font-weight: bold; font-size: 19px; text-align: center; opacity: 40%; position: relative; top: -20px;">Password </h1>
+                    <input readonly id="passwordHide" type="password" value="password" style="text-align: center; color: #4E7DFF; width: 200px; height: 35px; border: none; outline: none; border-radius: 10px; margin-bottom: 20px; position: relative; top: -20px;">
+
+                    <img onclick="if(document.getElementById('passwordHide').type == 'password') {document.getElementById('passwordHide').type = 'text'; return}; if(document.getElementById('passwordHide').type == 'text') {document.getElementById('passwordHide').type = 'password'; return}; " src="/devFiles/hideDetails.png" style="position: relative; top: -66px; left: 180px; width: 17px">
+                    <img onclick="if(document.getElementById('emailHide').type == 'password') {document.getElementById('emailHide').type = 'text'; return}; if(document.getElementById('emailHide').type == 'text') {document.getElementById('emailHide').type = 'password'; return};" src="/devFiles/hideDetails.png" style="position: relative; top: -169px; left: 180px; width: 17px">
+                </div>
+                
+
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="firefunctions.js"></script>
+<script src="app.js"></script>
+<script>
+    function showPage(pageType)
+    {
+        if(Cookies.get('email'))
+        {
+            console.log("signed in")
+            document.getElementById("signup").style.display = "none"
+            document.getElementById("login").style.display = "none"
+            document.getElementById("account").style.display = "block"
+
+            document.getElementById("subtitle").innerHTML = 'Welcome back, ' + Cookies.get('username')
+
+            document.getElementById('emailHide').value = Cookies.get('email')
+            document.getElementById('passwordHide').value = Cookies.get('password')
+
+            
+            return
+        }
+        if(pageType == "login")
+        {
+            document.getElementById("signup").style.display = "none"
+            document.getElementById("login").style.display = "block"
+        }
+
+        if(pageType == "signup")
+        {
+            document.getElementById("signup").style.display = "block"
+            document.getElementById("login").style.display = "none"
+        }
+        
+    }
+
+
+    showPage('signup')
+</script>
+</html>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+    .mainDiv{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        overflow-x: hidden;
+    }
+
+    body{
+        background-color: #4E7DFF;
+        font-family: 'Roboto', sans-serif;
+        overflow-x: hidden;
+    }
+    *{
+        font-family: 'Roboto', sans-serif;
+
+    }
+
+    ::placeholder{
+        color: #4E7DFF;
+        opacity: 40%;
+    }
+
+</style>
